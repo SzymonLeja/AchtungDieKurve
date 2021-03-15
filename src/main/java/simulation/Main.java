@@ -1,8 +1,6 @@
-package main.java;
-
 public class Main {
     public static void main(String[] args){
         System.out.println("Hello world!");
-        System.out.println("Siema Leja to debil");
+        System.out.println("Siema W0jnar to debil");
     }
 }
