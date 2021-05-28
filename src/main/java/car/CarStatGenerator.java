@@ -14,6 +14,6 @@ public class CarStatGenerator {
     private Car generateInternal(long seed)
     {
         Random random = new Random(seed);
-        return new Car(random.nextInt(400)+40, random.nextDouble()*900+800 , random.nextDouble()*1000+500);
+        return new Car(random.nextInt(400)+40, random.nextDouble()*900+800);
     }
 }

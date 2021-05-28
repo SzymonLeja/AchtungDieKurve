@@ -13,6 +13,8 @@ public class Obstacle {
         return obstacleType;
     }
 
+    public double getReqSpeed(){return reqSpeed; }
+
     @Override
     public String toString() {
         return obstacleType.name();
