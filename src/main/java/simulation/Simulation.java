@@ -4,7 +4,7 @@ import car.Car;
 import road.Road;
 
 public class Simulation {
-    private Car car;
+    private final Car car;
     private Road road;
 
     public Simulation(Car car, Road road) {

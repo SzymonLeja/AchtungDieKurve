@@ -3,7 +3,7 @@ package car;
 import java.util.Random;
 
 public class CarStatGenerator {
-    public Car generate(){
+    public Car generate() {
         return generateInternal(System.currentTimeMillis());
     }
 
@@ -11,9 +11,8 @@ public class CarStatGenerator {
         return generateInternal(seed);
     }
 
-    private Car generateInternal(long seed)
-    {
+    private Car generateInternal(long seed) {
         Random random = new Random(seed);
-        return new Car(random.nextInt(400)+40, random.nextDouble()*900+800);
+        return new Car(random.nextInt(400) + 40, random.nextDouble() * 900 + 800);
     }
 }
