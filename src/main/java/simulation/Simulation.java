@@ -16,7 +16,7 @@ public class Simulation {
         RoadGenerator roadGenerator = new RoadGenerator();
         boolean crashed = false;
         int j =0;
-        for(j=0;j<i;j++){
+        for(j=0;j<=i;j++){
             Road road = roadGenerator.generate();
             System.out.println(road.toString());
             double cornerDegree = road.getCornerDegree();

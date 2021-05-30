@@ -8,19 +8,17 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj dlugosc trasy (km)");
         int distance;
-        boolean inputNotNull = false;
-        while (!inputNotNull)
+        while (true)
         {
             try {
                 distance = scan.nextInt();
+                break;
             } catch (Exception e)
             {
                 System.out.println("Prosze o wartosc liczbowa");
-                continue;
+                scan.next();
             }
-            inputNotNull = true;
         }
-        distance = scan.nextInt();
         CarStatGenerator carGenerator = new CarStatGenerator();
         Simulation simulation;
         simulation = new Simulation(carGenerator.generate());
