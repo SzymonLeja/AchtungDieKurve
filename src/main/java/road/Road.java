@@ -23,7 +23,7 @@ public class Road {
     @Override
     public String toString() {
         return String.format(
-                "Droga {type= %s, grip= %.2f, track= %s, cornerDegree: %s, obstacle: %s }",
+                "Droga {type= %s,\n grip= %.2f,\n track= %s,\n cornerDegree: %s,\n obstacle: %s }",
                 type.getType(),
                 grip,
                 track.getTrack(),
@@ -33,5 +33,12 @@ public class Road {
 
     public double getGrip() {
         return grip;
+    }
+
+    public double getCornerDegree() {
+        return cornerDegree;
+    }
+    public Obstacle getObstacle() {
+        return obstacle;
     }
 }

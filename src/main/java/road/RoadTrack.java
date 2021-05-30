@@ -23,26 +23,26 @@ public class RoadTrack {
 
     private void setPossibleObstacle(String track) {
         ArrayList<Obstacle> asphaltObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.RoadWork, 40),
-                new Obstacle(ObstacleEnum.Babushka, 20),
-                new Obstacle(ObstacleEnum.Pedestrian, 30),
+                new Obstacle(ObstacleEnum.RoadWork, 30),
+                new Obstacle(ObstacleEnum.Babushka, 10),
+                new Obstacle(ObstacleEnum.Pedestrian, 20),
                 new Obstacle(ObstacleEnum.none, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> gravelObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.RoadWork, 40),
-                new Obstacle(ObstacleEnum.Babushka, 20),
-                new Obstacle(ObstacleEnum.Pedestrian, 30),
+                new Obstacle(ObstacleEnum.RoadWork, 20),
+                new Obstacle(ObstacleEnum.Babushka, 5),
+                new Obstacle(ObstacleEnum.Pedestrian, 10),
                 new Obstacle(ObstacleEnum.none, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> sandObstacles = new ArrayList<>(Arrays.asList(
                 new Obstacle(ObstacleEnum.Babushka, 10),
                 new Obstacle(ObstacleEnum.Pedestrian, 20),
-                new Obstacle(ObstacleEnum.Animal, 50),
+                new Obstacle(ObstacleEnum.Animal, 40),
                 new Obstacle(ObstacleEnum.none, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> grassObstacles = new ArrayList<>(Arrays.asList(
                 new Obstacle(ObstacleEnum.Babushka, 30),
-                new Obstacle(ObstacleEnum.Animal, 50),
+                new Obstacle(ObstacleEnum.Animal, 20),
                 new Obstacle(ObstacleEnum.none, Double.POSITIVE_INFINITY)
         ));
         switch (track) {
