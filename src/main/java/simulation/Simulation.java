@@ -41,7 +41,7 @@ public class Simulation {
                 double obstacleReqSpeed = road.getObstacle().getReqSpeed();
                 if(car.getCurrentSpeed() > obstacleReqSpeed){
                     if(car.braking(roadGrip, obstacleReqSpeed)>200){
-                        System.out.println("Uderzyles przeszkode! (" + road.getObstacle().getObstacleType() + " )");
+                        System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
                         crashed = true;
                         break;
                     }
