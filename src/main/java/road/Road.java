@@ -23,7 +23,7 @@ public class Road {
     @Override
     public String toString() {
         return String.format(
-                "Droga {type= %s,\n grip= %.2f,\n track= %s,\n cornerDegree: %s,\n obstacle: %s }",
+                "Droga:\ntyp= %s,\nprzyczepnosc= %.2f,\nrodzaj zakretu= %s,\nstopien nachylenia: %s,\nprzeszkoda: %s\n ",
                 type.getType(),
                 grip,
                 track.getTrack(),
