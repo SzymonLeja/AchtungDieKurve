@@ -5,6 +5,8 @@ import obstacle.ObstacleEnum;
 import road.Road;
 import road.RoadGenerator;
 
+import java.text.DecimalFormat;
+
 public class Simulation {
     private final Car car;
 
@@ -17,6 +19,7 @@ public class Simulation {
         RoadGenerator roadGenerator = new RoadGenerator();
         boolean crashed = false;
         int j =1;
+        DecimalFormat twoDecimal = new DecimalFormat("#0.00");
         for(j=1;j<=i;j++){
             Road road = roadGenerator.generate();
             System.out.println(road.toString());
@@ -41,7 +44,7 @@ public class Simulation {
                 car.acceleration(roadGrip, 800);
             }
             //koniecc zakretu
-            if(road.getObstacle().getObstacleType() != ObstacleEnum.none){
+            if(road.getObstacle().getObstacleType() != ObstacleEnum.nic){
                 double obstacleReqSpeed = road.getObstacle().getReqSpeed();
                 if(car.getCurrentSpeed() > obstacleReqSpeed){
                     if(car.braking(roadGrip, obstacleReqSpeed)>200){
@@ -56,8 +59,10 @@ public class Simulation {
                     car.acceleration(roadGrip, 200, obstacleReqSpeed);
                 }
             }
-            System.out.println("Koniec " + j + " kilometru, z prędkością " + car.getCurrentSpeed()+"\n");
+            System.out.println("Koniec " + j + " kilometru, z prędkością " + twoDecimal.format(car.getCurrentSpeed())+" km/h.\n");
         }
-        System.out.println(crashed? ("Kierowca nie pokonał trasy! Poległ na " + j + " kilometrze" ):"Kierowca pokonał całą trase! (" + j + " kilometrow )");
+        System.out.println(crashed?
+                "Kierowca nie pokonał trasy! Poległ na " + (j-1) + " kilometrze z predkoscia " + twoDecimal.format(car.getCurrentSpeed()) + " km/h."
+                :"Kierowca pokonał całą trase! (" + (j-1) + " kilometrow )");
     }
 }

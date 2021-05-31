@@ -27,7 +27,7 @@ public class Road {
                 type.getType(),
                 grip,
                 track.getTrack(),
-                cornerDegree == 0 ? "none" : String.format("%.2f", cornerDegree),
+                cornerDegree == 0 ? "nie ma" : String.format("%.2f", cornerDegree),
                 obstacle.toString());
     }
 

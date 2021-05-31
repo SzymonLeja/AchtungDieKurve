@@ -10,19 +10,19 @@ public class RoadType {
     public RoadType() {
         type = generateType();
         switch (type) {
-            case ("Asphalt") -> {
+            case ("Asfalt") -> {
                 maxGrip = 0.8;
                 minGrip = 0.5;
             }
-            case ("Gravel") -> {
+            case ("Zwir") -> {
                 maxGrip = 0.6;
                 minGrip = 0.3;
             }
-            case ("Sand") -> {
+            case ("Piasek") -> {
                 maxGrip = 0.4;
                 minGrip = 0.2;
             }
-            case ("Grass") -> {
+            case ("Trawa") -> {
                 maxGrip = 0.5;
                 minGrip = 0.3;
             }
