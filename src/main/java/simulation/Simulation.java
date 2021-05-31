@@ -13,6 +13,7 @@ public class Simulation {
     } // do zakretu 780 zakret 20 do przeszkody 200
 
     public void Simulate(int i){
+        System.out.println(car.toString());
         RoadGenerator roadGenerator = new RoadGenerator();
         boolean crashed = false;
         int j =1;
@@ -30,6 +31,9 @@ public class Simulation {
                         crashed = true;
                         break;
                     }
+                    else {
+                        car.setCurrentSpeed(requiredCornerSpeed);
+                    }
                 } else {
                     car.acceleration(roadGrip, 780, requiredCornerSpeed);
                 }
@@ -44,6 +48,9 @@ public class Simulation {
                         System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
                         crashed = true;
                         break;
+                    }
+                    else {
+                        car.setCurrentSpeed(obstacleReqSpeed);
                     }
                 } else {
                     car.acceleration(roadGrip, 200, obstacleReqSpeed);

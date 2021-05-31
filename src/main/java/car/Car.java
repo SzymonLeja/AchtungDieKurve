@@ -14,7 +14,7 @@ public class Car implements Acceleration{
     @Override
     public String toString() {
         return String.format(
-                "Statystyki auta:\nKonie mechaniczne: %d,\nmasa auta: %.2f,\npredkosc poczatkowa: %.2f }",
+                "\nStatystyki auta:\nKonie mechaniczne: %d,\nmasa auta: %.2f,\npredkosc poczatkowa: %.2f\n ",
                 horsePower,
                 mass,
                 currentSpeed);
@@ -37,10 +37,14 @@ public class Car implements Acceleration{
     @Override
     public double braking(double grip, double reqSpeed){
         int brakingPower = 55;
-        return Math.abs(-(Math.pow(currentSpeed-reqSpeed,2))/(2*brakingPower)) +(0.005*(grip*mass));
+        return Math.abs(-(Math.pow(currentSpeed-reqSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));
     }
 
     public double getCurrentSpeed() {
         return currentSpeed;
+    }
+
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
 }
