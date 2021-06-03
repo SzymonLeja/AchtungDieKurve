@@ -44,6 +44,7 @@ public class Simulation {
                 car.acceleration(roadGrip, 800);
             }
             //koniecc zakretu
+            //przeszkoda
             if(road.getObstacle().getObstacleType() != ObstacleEnum.nic){
                 double obstacleReqSpeed = road.getObstacle().getReqSpeed();
                 if(car.getCurrentSpeed() > obstacleReqSpeed){
@@ -59,6 +60,7 @@ public class Simulation {
                     car.acceleration(roadGrip, 200, obstacleReqSpeed);
                 }
             }
+            //koniec przeszkody
             System.out.println("Koniec " + j + " kilometru, z prędkością " + twoDecimal.format(car.getCurrentSpeed())+" km/h.\n");
         }
         System.out.println(crashed?

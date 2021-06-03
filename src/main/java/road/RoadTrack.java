@@ -46,10 +46,10 @@ public class RoadTrack {
                 new Obstacle(ObstacleEnum.nic, Double.POSITIVE_INFINITY)
         ));
         switch (track) {
-            case ("Asphalt") -> possibleObstacle = asphaltObstacles;
-            case ("Gravel") -> possibleObstacle = gravelObstacles;
-            case ("Sand") -> possibleObstacle = sandObstacles;
-            case ("Grass") -> possibleObstacle = grassObstacles;
+            case ("Asfalt") -> possibleObstacle = asphaltObstacles;
+            case ("Zwir") -> possibleObstacle = gravelObstacles;
+            case ("Piasek") -> possibleObstacle = sandObstacles;
+            case ("Trawa") -> possibleObstacle = grassObstacles;
             default -> possibleObstacle = new ArrayList<>(Collections.singletonList(new Obstacle(ObstacleEnum.Babushka, 90)));
         }
     }
