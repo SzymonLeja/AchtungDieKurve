@@ -8,7 +8,7 @@ public class RoadType {
     private final double minGrip;
 
     public RoadType() {
-        type = generateType();
+        type = RoadSurfaces.getRandomSurface();
         switch (type) {
             case ("ASFALT") -> {
                 maxGrip = 0.8;
@@ -35,11 +35,6 @@ public class RoadType {
 
     public String getType() {
         return type;
-    }
-
-    private String generateType() {
-        Random random = new Random(System.currentTimeMillis());
-        return RoadSurfaces.values()[random.nextInt(RoadSurfaces.values().length)].toString();
     }
 
     public double getMaxGrip() {
