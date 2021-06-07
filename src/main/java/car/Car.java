@@ -21,13 +21,13 @@ public class Car implements Acceleration{
     }
 
     @Override
-    public void acceleration(double grip, int distance, double reqSpeed) {
+    public void acceleration(double grip, double distance, double requiredSpeed) {
         double constantResistance = 42.11; // dragForce + rollingResistance\
         double accelerationValue = (horsePower + grip * constantResistance)/mass; // m/s^2
         double endVelocity = Math.sqrt(currentSpeed*currentSpeed + 2 * accelerationValue* distance);
-        currentSpeed = Math.min(endVelocity, reqSpeed);
+        currentSpeed = Math.min(endVelocity, requiredSpeed);
     }
-    public void acceleration(double grip, int distance) {
+    public void acceleration(double grip, double distance) {
         double constantResistance = 42.11; // dragForce + rollingResistance\
         double accelerationValue = (horsePower + grip * constantResistance)/mass; // m/s^2
         double endVelocity = Math.sqrt(currentSpeed*currentSpeed + 2 * accelerationValue* distance);
@@ -35,7 +35,7 @@ public class Car implements Acceleration{
     }
 
     @Override
-    public double braking(double grip, double reqSpeed){
+    public double braking(double grip, double requiredSpeed){
         int brakingPower = 55;
         return Math.abs(-(Math.pow(currentSpeed-reqSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));
     }

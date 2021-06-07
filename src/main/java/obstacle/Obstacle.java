@@ -2,18 +2,18 @@ package obstacle;
 
 public class Obstacle {
     private ObstacleEnum obstacleType;
-    private double reqSpeed;
+    private double requiredSpeed;
 
-    public Obstacle(ObstacleEnum obstacleType, double reqSpeed) {
+    public Obstacle(ObstacleEnum obstacleType, double requiredSpeed) {
         this.obstacleType = obstacleType;
-        this.reqSpeed = reqSpeed;
+        this.requiredSpeed = requiredSpeed;
     }
 
     public ObstacleEnum getObstacleType() {
         return obstacleType;
     }
 
-    public double getReqSpeed(){return reqSpeed; }
+    public double getRequiredSpeed(){return requiredSpeed; }
 
     @Override
     public String toString() {

@@ -34,7 +34,6 @@ public class Road {
     public double getGrip() {
         return grip;
     }
-
     public double getCornerDegree() {
         return cornerDegree;
     }

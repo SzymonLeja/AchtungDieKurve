@@ -29,7 +29,7 @@ public class Simulation {
             if(cornerDegree>0){
                 double requiredCornerSpeed = Math.sqrt(roadGrip*((180*20)/(cornerDegree*Math.PI))*9.81*3.6);
                 if(car.getCurrentSpeed() > requiredCornerSpeed){
-                    if(car.braking(roadGrip, requiredCornerSpeed)>780){
+                    if(car.braking(roadGrip, requiredCornerSpeed)>0.78){
                         System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + car.getCurrentSpeed() +" )");
                         crashed = true;
                         break;
@@ -38,10 +38,10 @@ public class Simulation {
                         car.setCurrentSpeed(requiredCornerSpeed);
                     }
                 } else {
-                    car.acceleration(roadGrip, 780, requiredCornerSpeed);
+                    car.acceleration(roadGrip, 0.78, requiredCornerSpeed);
                 }
             } else {
-                car.acceleration(roadGrip, 800);
+                car.acceleration(roadGrip, 0.8);
             }
             //koniecc zakretu
             //przeszkoda
@@ -57,7 +57,7 @@ public class Simulation {
                         car.setCurrentSpeed(obstacleReqSpeed);
                     }
                 } else {
-                    car.acceleration(roadGrip, 200, obstacleReqSpeed);
+                    car.acceleration(roadGrip, 0.2, obstacleRequiredSpeed);
                 }
             }
             //koniec przeszkody
