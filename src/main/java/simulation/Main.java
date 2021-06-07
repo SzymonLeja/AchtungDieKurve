@@ -20,7 +20,7 @@ public class Main {
             }
         }
         CarStatGenerator carGenerator = new CarStatGenerator();
-        Simulation simulation = new Simulation(carGenerator.generate());;
+        Simulation simulation = new Simulation(carGenerator.generate());
         simulation.Simulate(distance);
     }
 }

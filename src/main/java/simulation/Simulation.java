@@ -26,39 +26,15 @@ public class Simulation {
             double cornerDegree = road.getCornerDegree();
             double roadGrip = road.getGrip();
             // zakret
-            if(cornerDegree>0){
-                double requiredCornerSpeed = Math.sqrt(roadGrip*((180*20)/(cornerDegree*Math.PI))*9.81*3.6);
-                if(car.getCurrentSpeed() > requiredCornerSpeed){
-                    if(car.braking(roadGrip, requiredCornerSpeed)>0.78){
-                        System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + car.getCurrentSpeed() +" )");
-                        crashed = true;
-                        break;
-                    }
-                    else {
-                        car.setCurrentSpeed(requiredCornerSpeed);
-                    }
-                } else {
-                    car.acceleration(roadGrip, 0.78, requiredCornerSpeed);
-                }
-            } else {
-                car.acceleration(roadGrip, 0.8);
+            if(corneringCrash(roadGrip, cornerDegree, car)){
+                crashed = true;
+                break;
             }
             //koniecc zakretu
             //przeszkoda
-            if(road.getObstacle().getObstacleType() != ObstacleEnum.NIC){
-                double obstacleRequiredSpeed = road.getObstacle().getRequiredSpeed();
-                if(car.getCurrentSpeed() > obstacleRequiredSpeed){
-                    if(car.braking(roadGrip, obstacleRequiredSpeed)>200){
-                        System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
-                        crashed = true;
-                        break;
-                    }
-                    else {
-                        car.setCurrentSpeed(obstacleRequiredSpeed);
-                    }
-                } else {
-                    car.acceleration(roadGrip, 0.2, obstacleRequiredSpeed);
-                }
+            if(obstacleCrash(road,car,roadGrip)){
+                crashed = true;
+                break;
             }
             //koniec przeszkody
             System.out.println("Koniec " + j + " kilometru, z prędkością " + twoDecimal.format(car.getCurrentSpeed())+" km/h.\n");
@@ -66,5 +42,45 @@ public class Simulation {
         System.out.println(crashed?
                 "Kierowca nie pokonał trasy! Poległ na " + (j-1) + " kilometrze z predkoscia " + twoDecimal.format(car.getCurrentSpeed()) + " km/h."
                 :"Kierowca pokonał całą trase! (" + (j-1) + " kilometrow )");
+    }
+    private boolean corneringCrash(double roadGrip, double cornerDegree, Car car){
+        if(cornerDegree>0){
+            double requiredCornerSpeed = Math.sqrt(roadGrip*((180*20)/(cornerDegree*Math.PI))*9.81*3.6);
+            if(car.getCurrentSpeed() > requiredCornerSpeed){
+                if(car.braking(roadGrip, requiredCornerSpeed)>0.78){
+                    System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + car.getCurrentSpeed() +" )");
+                    return true;
+                }
+                else {
+                    car.setCurrentSpeed(requiredCornerSpeed);
+                    return false;
+                }
+            } else {
+                car.acceleration(roadGrip, 0.78, requiredCornerSpeed);
+                return false;
+            }
+        } else {
+            car.acceleration(roadGrip, 0.8);
+            return false;
+        }
+    }
+    private boolean obstacleCrash(Road road, Car car, double roadGrip){
+        if(road.getObstacle().getObstacleType() != ObstacleEnum.NIC){
+            double obstacleRequiredSpeed = road.getObstacle().getRequiredSpeed();
+            if(car.getCurrentSpeed() > obstacleRequiredSpeed){
+                if(car.braking(roadGrip, obstacleRequiredSpeed)>200){
+                    System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
+                    return true;
+                }
+                else {
+                    car.setCurrentSpeed(obstacleRequiredSpeed);
+                    return false;
+                }
+            } else {
+                car.acceleration(roadGrip, 0.2, obstacleRequiredSpeed);
+                return false;
+            }
+        }
+        return false;
     }
 }
