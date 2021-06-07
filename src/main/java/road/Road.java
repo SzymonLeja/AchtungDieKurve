@@ -23,12 +23,7 @@ public class Road {
     @Override
     public String toString() {
         return String.format(
-                "Droga:\ntyp= %s,\nprzyczepnosc= %.2f,\nrodzaj zakretu= %s,\nstopien nachylenia: %s,\nprzeszkoda: %s\n ",
-                type.getType(),
-                grip,
-                track.getTrack(),
-                cornerDegree == 0 ? "nie ma" : String.format("%.2f", cornerDegree),
-                obstacle.toString());
+                "Droga:\ntyp= %s,\nprzyczepnosc= %.2f,\nrodzaj zakretu= %s,\nstopien nachylenia: %s,\nprzeszkoda: %s\n ", type.getType(), grip, track.getTrack(), cornerDegree == 0 ? "nie ma" : String.format("%.2f", cornerDegree), obstacle.toString());
     }
 
     public double getGrip() {

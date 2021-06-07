@@ -13,11 +13,7 @@ public class Car implements Acceleration{
 
     @Override
     public String toString() {
-        return String.format(
-                "\nStatystyki auta:\nKonie mechaniczne: %d,\nmasa auta: %.2f,\npredkosc poczatkowa: %.2f\n ",
-                horsePower,
-                mass,
-                currentSpeed);
+        return String.format("\nStatystyki auta:\nKonie mechaniczne: %d,\nmasa auta: %.2f,\npredkosc poczatkowa: %.2f\n ", horsePower, mass, currentSpeed);
     }
 
     @Override
