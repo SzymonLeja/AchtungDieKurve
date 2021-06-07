@@ -1,6 +1,6 @@
 package road;
 
-public enum RoadTrackEnum {
+public enum RoadDirections {
     PROSTO,
     LEWO,
     PRAWO

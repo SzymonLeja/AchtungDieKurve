@@ -39,7 +39,7 @@ public class RoadType {
 
     private String generateType() {
         Random random = new Random(System.currentTimeMillis());
-        return RoadTypeEnum.values()[random.nextInt(RoadTypeEnum.values().length)].toString();
+        return RoadSurfaces.values()[random.nextInt(RoadSurfaces.values().length)].toString();
     }
 
     public double getMaxGrip() {

@@ -1,15 +1,15 @@
 package obstacle;
 
 public class Obstacle {
-    private ObstacleEnum obstacleType;
+    private ObstacleTypes obstacleType;
     private double requiredSpeed;
 
-    public Obstacle(ObstacleEnum obstacleType, double requiredSpeed) {
+    public Obstacle(ObstacleTypes obstacleType, double requiredSpeed) {
         this.obstacleType = obstacleType;
         this.requiredSpeed = requiredSpeed;
     }
 
-    public ObstacleEnum getObstacleType() {
+    public ObstacleTypes getObstacleType() {
         return obstacleType;
     }
 

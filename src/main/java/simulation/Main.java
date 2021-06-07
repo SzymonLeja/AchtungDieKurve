@@ -1,6 +1,6 @@
 package simulation;
 
-import car.CarStatGenerator;
+import car.CarGenerator;
 import java.util.Scanner;
 
 public class Main {
@@ -19,7 +19,7 @@ public class Main {
                 scan.next();
             }
         }
-        CarStatGenerator carGenerator = new CarStatGenerator();
+        CarGenerator carGenerator = new CarGenerator();
         Simulation simulation = new Simulation(carGenerator.generate());
         simulation.Simulate(distance);
     }

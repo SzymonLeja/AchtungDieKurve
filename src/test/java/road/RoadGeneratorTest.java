@@ -1,7 +1,5 @@
 package road;
 
-import car.Car;
-import car.CarStatGenerator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

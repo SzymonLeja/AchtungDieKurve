@@ -1,6 +1,6 @@
 package road;
 
-public enum RoadTypeEnum {
+public enum RoadSurfaces {
     ASFALT,
     ZWIR,
     PIASEK,

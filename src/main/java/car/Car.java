@@ -1,6 +1,6 @@
 package car;
 
-public class Car implements Acceleration{
+public class Car {
     private final int horsePower;
     private final double mass;
     private double currentSpeed;
@@ -16,7 +16,6 @@ public class Car implements Acceleration{
         return String.format("\nStatystyki auta:\nKonie mechaniczne: %d,\nmasa auta: %.2f,\npredkosc poczatkowa: %.2f\n ", horsePower, mass, currentSpeed);
     }
 
-    @Override
     public void acceleration(double grip, double distance, double requiredSpeed) {
         double constantResistance = 42.11; // dragForce + rollingResistance\
         double accelerationValue = (horsePower + grip * constantResistance)/mass; // m/s^2
@@ -30,7 +29,6 @@ public class Car implements Acceleration{
         currentSpeed = endVelocity;
     }
 
-    @Override
     public double braking(double grip, double requiredSpeed){
         int brakingPower = 55;
         return Math.abs(-(Math.pow(currentSpeed-requiredSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));

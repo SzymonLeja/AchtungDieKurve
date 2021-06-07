@@ -2,7 +2,7 @@ package car;
 
 import java.util.Random;
 
-public class CarStatGenerator {
+public class CarGenerator {
     public Car generate() {
         return generateInternal(System.currentTimeMillis());
     }

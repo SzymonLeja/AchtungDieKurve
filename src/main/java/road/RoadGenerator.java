@@ -2,12 +2,12 @@ package road;
 
 import obstacle.Obstacle;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RoadGenerator {
     public Road generate() {
-        return generateInternal(System.currentTimeMillis());
+        return generateInternal(System.currentTimeMillis()%5);
     }
 
     public Road generate(long seed) {
@@ -28,7 +28,7 @@ public class RoadGenerator {
         return random.nextDouble() * (type.getMaxGrip() - type.getMinGrip()) + type.getMinGrip();
     }
     private Obstacle generateObstacle(RoadTrack track, Random random) {
-        ArrayList<Obstacle> obstacles = track.getPossibleObstacle();
+        List<Obstacle> obstacles = track.getPossibleObstacle();
         return obstacles.get(random.nextInt(obstacles.size()));
     }
 
