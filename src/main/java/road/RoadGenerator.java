@@ -33,7 +33,7 @@ public class RoadGenerator {
     }
 
     private double generateDegree(RoadTrack track, Random random) {
-        if (!track.getTrack().equals("Prosto"))
+        if (!track.getTrack().equals("PROSTO"))
             return random.nextDouble() * 100 + 30;
         return 0;
     }

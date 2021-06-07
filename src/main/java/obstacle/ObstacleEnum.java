@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public enum ObstacleEnum {
-    Zwierze,
-    RobotyDrogowe,
-    Przechodzien,
-    Babushka,
-    nic;
+    ZWIERZE,
+    ROBOTYDROGOWE,
+    PIESZY,
+    BABUSHKA,
+    NIC;
 }

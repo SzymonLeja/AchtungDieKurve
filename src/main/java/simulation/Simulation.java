@@ -45,16 +45,16 @@ public class Simulation {
             }
             //koniecc zakretu
             //przeszkoda
-            if(road.getObstacle().getObstacleType() != ObstacleEnum.nic){
-                double obstacleReqSpeed = road.getObstacle().getReqSpeed();
-                if(car.getCurrentSpeed() > obstacleReqSpeed){
-                    if(car.braking(roadGrip, obstacleReqSpeed)>200){
+            if(road.getObstacle().getObstacleType() != ObstacleEnum.NIC){
+                double obstacleRequiredSpeed = road.getObstacle().getRequiredSpeed();
+                if(car.getCurrentSpeed() > obstacleRequiredSpeed){
+                    if(car.braking(roadGrip, obstacleRequiredSpeed)>200){
                         System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
                         crashed = true;
                         break;
                     }
                     else {
-                        car.setCurrentSpeed(obstacleReqSpeed);
+                        car.setCurrentSpeed(obstacleRequiredSpeed);
                     }
                 } else {
                     car.acceleration(roadGrip, 0.2, obstacleRequiredSpeed);

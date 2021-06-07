@@ -23,34 +23,34 @@ public class RoadTrack {
 
     private void setPossibleObstacle(String track) {
         ArrayList<Obstacle> asphaltObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.RobotyDrogowe, 30),
-                new Obstacle(ObstacleEnum.Babushka, 10),
-                new Obstacle(ObstacleEnum.Przechodzien, 20),
-                new Obstacle(ObstacleEnum.nic, Double.POSITIVE_INFINITY)
+                new Obstacle(ObstacleEnum.ROBOTYDROGOWE, 30),
+                new Obstacle(ObstacleEnum.BABUSHKA, 10),
+                new Obstacle(ObstacleEnum.PIESZY, 20),
+                new Obstacle(ObstacleEnum.NIC, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> gravelObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.RobotyDrogowe, 20),
-                new Obstacle(ObstacleEnum.Babushka, 5),
-                new Obstacle(ObstacleEnum.Przechodzien, 10),
-                new Obstacle(ObstacleEnum.nic, Double.POSITIVE_INFINITY)
+                new Obstacle(ObstacleEnum.ROBOTYDROGOWE, 20),
+                new Obstacle(ObstacleEnum.BABUSHKA, 5),
+                new Obstacle(ObstacleEnum.PIESZY, 10),
+                new Obstacle(ObstacleEnum.NIC, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> sandObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.Babushka, 10),
-                new Obstacle(ObstacleEnum.Przechodzien, 20),
-                new Obstacle(ObstacleEnum.Zwierze, 40),
-                new Obstacle(ObstacleEnum.nic, Double.POSITIVE_INFINITY)
+                new Obstacle(ObstacleEnum.BABUSHKA, 10),
+                new Obstacle(ObstacleEnum.PIESZY, 20),
+                new Obstacle(ObstacleEnum.ZWIERZE, 40),
+                new Obstacle(ObstacleEnum.NIC, Double.POSITIVE_INFINITY)
         ));
         ArrayList<Obstacle> grassObstacles = new ArrayList<>(Arrays.asList(
-                new Obstacle(ObstacleEnum.Babushka, 30),
-                new Obstacle(ObstacleEnum.Zwierze, 20),
-                new Obstacle(ObstacleEnum.nic, Double.POSITIVE_INFINITY)
+                new Obstacle(ObstacleEnum.BABUSHKA, 30),
+                new Obstacle(ObstacleEnum.ZWIERZE, 20),
+                new Obstacle(ObstacleEnum.NIC, Double.POSITIVE_INFINITY)
         ));
         switch (track) {
-            case ("Asfalt") -> possibleObstacle = asphaltObstacles;
-            case ("Zwir") -> possibleObstacle = gravelObstacles;
-            case ("Piasek") -> possibleObstacle = sandObstacles;
-            case ("Trawa") -> possibleObstacle = grassObstacles;
-            default -> possibleObstacle = new ArrayList<>(Collections.singletonList(new Obstacle(ObstacleEnum.Babushka, 90)));
+            case ("ASFALT") -> possibleObstacle = asphaltObstacles;
+            case ("ZWIR") -> possibleObstacle = gravelObstacles;
+            case ("PIASEK") -> possibleObstacle = sandObstacles;
+            case ("TRAWA") -> possibleObstacle = grassObstacles;
+            default -> possibleObstacle = new ArrayList<>(Collections.singletonList(new Obstacle(ObstacleEnum.BABUSHKA, 90)));
         }
     }
 

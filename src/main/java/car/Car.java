@@ -37,7 +37,7 @@ public class Car implements Acceleration{
     @Override
     public double braking(double grip, double requiredSpeed){
         int brakingPower = 55;
-        return Math.abs(-(Math.pow(currentSpeed-reqSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));
+        return Math.abs(-(Math.pow(currentSpeed-requiredSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));
     }
 
     public double getCurrentSpeed() {
