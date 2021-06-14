@@ -4,12 +4,22 @@ import obstacle.Obstacle;
 
 import java.util.List;
 import java.util.Random;
-
+/**
+ * Klasa generujaca droge o losowych parametrach
+ */
 public class RoadGenerator {
+    /**
+     * Metoda wywolujaca generowanie drogi o losowych parametrach bez zadanego wczesniej ziarna
+     * @return Samochod wygenerowany na podstawie ziarna
+     */
     public Road generate() {
         return generateInternal(System.currentTimeMillis()%5);
     }
-
+    /**
+     * Metoda wywolujaca generowanie samochodu o losowych parametrach z zadanym wczesniej ziarnem
+     * @param seed zadane ziarno
+     * @return Samochod wygenerowany na podstawie ziarna
+     */
     public Road generate(long seed) {
         return generateInternal(seed);
     }

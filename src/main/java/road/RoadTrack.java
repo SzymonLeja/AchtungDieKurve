@@ -4,16 +4,26 @@ import obstacle.Obstacle;
 import obstacle.ObstacleTypes;
 
 import java.util.*;
-
+/**
+ * Klasa dobierajaca losowo przeszkode na drodze w zaleznosci od typu drogi
+ */
 public class RoadTrack {
     private final String track;
     private List<Obstacle> possibleObstacle;
 
+    /**
+     * Konstruktor klasy
+     * @param roadType typ drogi do ktorej dobieramy przeszkode
+     */
     public RoadTrack( String roadType) {
         this.track = generateTrack();
         setPossibleObstacle(roadType);
     }
 
+    /**
+     * Methoda zwracajaca przeszkode zawarta na drodze
+     * @return przeszkoda zawarta na drodze, mozliwa do wystapienia na danym typie drogi, razem z wymagana predkoscia do ominiecia zalezna od typu drogi
+     */
     public String getTrack() {
         return track;
     }
@@ -51,6 +61,10 @@ public class RoadTrack {
         }
     }
 
+    /**
+     * Metoda zwracaja mozliwe przeszkody na danej drodze
+     * @return lista obiektow mozliwych typow przeszkod
+     */
     public List<Obstacle> getPossibleObstacle() {
         return possibleObstacle;
     }
