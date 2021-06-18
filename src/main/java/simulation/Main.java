@@ -20,13 +20,12 @@ public class Main {
      */
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        System.out.println("Podaj dlugosc trasy (km)");
-        int distance;
-        while (true)
+        int distance=0;
+        while (distance<=0)
         {
+            System.out.println("Podaj dlugosc trasy (km)");
             try {
                 distance = scan.nextInt();
-                break;
             } catch (Exception e)
             {
                 System.out.println("Prosze o wartosc liczbowa");
