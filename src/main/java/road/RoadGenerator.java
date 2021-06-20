@@ -4,19 +4,23 @@ import obstacle.Obstacle;
 
 import java.util.List;
 import java.util.Random;
+
 /**
  * Klasa generujaca droge o losowych parametrach
  */
 public class RoadGenerator {
     /**
      * Metoda wywolujaca generowanie drogi o losowych parametrach bez zadanego wczesniej ziarna
+     *
      * @return Samochod wygenerowany na podstawie ziarna
      */
     public Road generate() {
-        return generateInternal(System.currentTimeMillis()%5);
+        return generateInternal(System.currentTimeMillis() % 5);
     }
+
     /**
      * Metoda wywolujaca generowanie samochodu o losowych parametrach z zadanym wczesniej ziarnem
+     *
      * @param seed zadane ziarno
      * @return Samochod wygenerowany na podstawie ziarna
      */
@@ -31,12 +35,19 @@ public class RoadGenerator {
         RoadTrack track = new RoadTrack(type.getType());
         Double cornerDegree = generateDegree(track, random);
         Obstacle obstacle = generateObstacle(track, random);
-        return new Road(grip, type, track, cornerDegree, obstacle);
+        return Road.builder()
+                .grip(grip)
+                .track(track)
+                .type(type)
+                .cornerDegree(cornerDegree)
+                .obstacle(obstacle)
+                .build();
     }
 
     private double generateGrip(RoadType type, Random random) {
         return random.nextDouble() * (type.getMaxGrip() - type.getMinGrip()) + type.getMinGrip();
     }
+
     private Obstacle generateObstacle(RoadTrack track, Random random) {
         List<Obstacle> obstacles = track.getPossibleObstacle();
         return obstacles.get(random.nextInt(obstacles.size()));

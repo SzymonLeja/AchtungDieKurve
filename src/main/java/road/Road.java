@@ -8,25 +8,78 @@ import java.util.Random;
  * Klasa Road przedstawia wygenerowana droge, jej parametry i przeszkody ktore sie na niej znajduja (lub nie)
  */
 public class Road {
-    private final double grip;
-    private final RoadType type;
-    private final RoadTrack track;
-    private final Double cornerDegree;
-    private final Obstacle obstacle;
+    private double grip;
+    private RoadType type;
+    private RoadTrack track;
+    private Double cornerDegree;
+    private Obstacle obstacle;
+
     /**
-     * Konstruktor klasy
-     * @param grip przyczepnosc miedzy powierzchnia drogi, a samochodem
-     * @param type typ nawierzchni
-     * @param track rodzaj drogi (zakret/prosta)
-     * @param cornerDegree stopień nachylenia drogi
-     * @param obstacle przeszkoda zawarta na drodze
+     * Budowniczy klasy Road
      */
-    public Road(double grip, RoadType type, RoadTrack track, Double cornerDegree, Obstacle obstacle) {
-        this.grip = grip;
-        this.type = type;
-        this.track = track;
-        this.cornerDegree = cornerDegree;
-        this.obstacle = obstacle;
+    public static final class Builder {
+        private double grip;
+        private RoadType type;
+        private RoadTrack track;
+        private Double cornerDegree;
+        private Obstacle obstacle;
+
+        /**
+         * Metoda która przypisuje przyczepność
+         * @param grip przyczepnosc miedzy powierzchnia drogi, a samochodem
+         */
+        public Builder grip(double grip){
+            this.grip = grip;
+            return this;
+        }
+
+        /**
+         * Metoda która przypisuje typ nawierzchni
+         * @param type typ nawierzchni
+         */
+        public Builder type(RoadType type){
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Metoda która przypisuje rodzaj drogi
+         * @param track rodzaj drogi (zakret/prosta)
+         */
+        public Builder track(RoadTrack track){
+            this.track = track;
+            return this;
+        }
+
+        /**
+         * Metoda która przypisuje stopień nachylenia
+         * @param cornerDegree stopień nachylenia drogi
+         */
+        public Builder cornerDegree(Double cornerDegree){
+            this.cornerDegree = cornerDegree;
+            return this;
+        }
+
+        /**
+         * Metoda która przypisuje przeszkodę
+         * @param obstacle przeszkoda zawarta na drodze
+         */
+        public Builder obstacle(Obstacle obstacle){
+            this.obstacle = obstacle;
+            return this;
+        }
+        /**
+         * Metoda budująca klasę Road
+         */
+        public Road build() {
+            Road road = new Road();
+            road.grip = this.grip;
+            road.type = this.type;
+            road.track = this.track;
+            road.cornerDegree = this.cornerDegree;
+            road.obstacle = this.obstacle;
+            return road;
+        }
     }
 
     @Override
@@ -57,5 +110,9 @@ public class Road {
      */
     public Obstacle getObstacle() {
         return obstacle;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 }

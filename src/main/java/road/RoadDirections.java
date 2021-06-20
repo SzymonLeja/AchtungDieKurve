@@ -1,5 +1,7 @@
 package road;
 
+import java.util.Random;
+
 /**
  * Klasa przechowujace mozliwe kierunki nachylenia drogi
  */
@@ -15,5 +17,13 @@ public enum RoadDirections {
     /**
      * Zakret przebiega w prawa strone
      */
-    PRAWO
+    PRAWO;
+
+    /**
+     * Metoda generujaca losowy kierunek nachylenia drogi
+     * @return losowy kierunek nachylenia drogi
+     */
+    public static RoadDirections getRandomDirection(){
+        return values()[new Random().nextInt(values().length)];
+    }
 }

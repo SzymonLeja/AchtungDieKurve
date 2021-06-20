@@ -7,27 +7,42 @@ import java.util.Random;
  */
 public enum RoadSurfaces {
     /**
-    Asfalt - najlepsze warunki drogowe
+     * Asfalt - najlepsze warunki drogowe
      **/
-    ASFALT,
+    ASFALT(0.8, 0.5),
     /**
-    Zwir - srednie warunki drogowe
+     * Zwir - srednie warunki drogowe
      **/
-    ZWIR,
+    ZWIR(0.6, 0.3),
     /**
-    Piasek - najgorsze warunki drogowe
+     * Piasek - najgorsze warunki drogowe
      **/
-    PIASEK,
+    PIASEK(0.4, 0.2),
     /**
-    Trawa - slabe warunki drogowe
+     * Trawa - slabe warunki drogowe
      **/
-    TRAWA;
+    TRAWA(0.5, 0.3);
+
+    public final double maxGrip;
+    public final double minGrip;
+
+    /**
+     * Konstruktor enuma, przypisuje maksymalną oraz minimalną przyczepność danej nawierzchni
+     *
+     * @param maxGrip maksymalna przyczepność
+     * @param minGrip minimalna przyczepność
+     */
+    RoadSurfaces(double maxGrip, double minGrip) {
+        this.maxGrip = maxGrip;
+        this.minGrip = minGrip;
+    }
 
     /**
      * Metoda generujaca losowa nawierzchnie drogi
+     *
      * @return losowa nawierzchnia drogi
      */
-    public static String getRandomSurface(){
-        return values()[new Random().nextInt(values().length)].toString();
+    public static RoadSurfaces getRandomSurface() {
+        return values()[new Random().nextInt(values().length)];
     }
 }
