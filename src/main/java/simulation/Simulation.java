@@ -56,11 +56,16 @@ public class Simulation {
      * @return True/False - Kierowca sie rozbil lub nie
      */
     private boolean corneringCrash(double roadGrip, double cornerDegree, Car car){
+        double cornerLength = 0.78; //kilometers
+        double straightLength = 0.8;//KILOMETERS
+        DecimalFormat twoDecimal = new DecimalFormat("#0.00");
         if(cornerDegree>0){
-            double requiredCornerSpeed = Math.sqrt(roadGrip*((180*20)/(cornerDegree*Math.PI))*9.81*3.6);
+            int corneringLength = 180*40;
+            double cornerPhysicsForces= 9.81*3.6;
+            double requiredCornerSpeed = Math.sqrt(roadGrip*((corneringLength)/(cornerDegree*Math.PI))*cornerPhysicsForces);
             if(car.getCurrentSpeed() > requiredCornerSpeed){
-                if(car.braking(roadGrip, requiredCornerSpeed)>0.78){
-                    System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + car.getCurrentSpeed() +" )");
+                if(car.braking(roadGrip, requiredCornerSpeed)>cornerLength){
+                    System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + twoDecimal.format(car.getCurrentSpeed()) +" )");
                     return true;
                 }
                 else {
@@ -68,11 +73,11 @@ public class Simulation {
                     return false;
                 }
             } else {
-                car.acceleration(roadGrip, 0.78, requiredCornerSpeed);
+                car.acceleration(roadGrip, cornerLength, requiredCornerSpeed);
                 return false;
             }
         } else {
-            car.acceleration(roadGrip, 0.8);
+            car.acceleration(roadGrip, straightLength);
             return false;
         }
     }
@@ -84,10 +89,11 @@ public class Simulation {
      * @return True/False - Kierowca sie rozbil lub nie
      */
     private boolean obstacleCrash(Road road, Car car, double roadGrip){
-        if(road.getObstacle().getObstacleType() != ObstacleTypes.NIC){
+        if(road.getObstacle().getObstacleType() != ObstacleTypes.NULL){
             double obstacleRequiredSpeed = road.getObstacle().getRequiredSpeed();
             if(car.getCurrentSpeed() > obstacleRequiredSpeed){
-                if(car.braking(roadGrip, obstacleRequiredSpeed)>200){
+                int distanceBeforeObstacle = 200; //meters
+                if(car.braking(roadGrip, obstacleRequiredSpeed)>distanceBeforeObstacle){
                     System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
                     return true;
                 }

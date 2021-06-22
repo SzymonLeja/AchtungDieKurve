@@ -7,15 +7,15 @@ public enum ObstacleTypes {
     /**
      * Zwierze na drodze
      */
-    ZWIERZE,
+    ANIMAL,
     /**
      * Roboty na drodze
      */
-    ROBOTYDROGOWE,
+    ROADWORKS,
     /**
      * Pieszy na drodze
      */
-    PIESZY,
+    PEDESTRIAN,
     /**
      * Babcia na drodze
      */
@@ -23,5 +23,5 @@ public enum ObstacleTypes {
     /**
      * Brak przeszkody na drodze
      */
-    NIC
+    NULL
 }

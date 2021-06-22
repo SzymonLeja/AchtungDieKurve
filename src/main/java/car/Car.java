@@ -41,8 +41,8 @@ public class Car {
      */
     public void acceleration(double grip, double distance) {
         double constantResistance = 42.11; // dragForce + rollingResistance\
-        double accelerationValue = (horsePower + grip * constantResistance)/mass; // m/s^2
-        double endVelocity = Math.sqrt(currentSpeed*currentSpeed + 2 * accelerationValue* distance);
+        double accelerationValue = 2*((horsePower + grip * constantResistance)/mass); // m/s^2
+        double endVelocity = Math.sqrt(currentSpeed*currentSpeed + accelerationValue* distance);
         currentSpeed = endVelocity;
     }
     /**
@@ -52,8 +52,9 @@ public class Car {
      * @return Droga hamowania do zadanej predkosci
      */
     public double braking(double grip, double requiredSpeed){
-        int brakingPower = 55;
-        return Math.abs(-(Math.pow(currentSpeed-requiredSpeed,2))/(2*brakingPower)) +(0.25*(grip*mass));
+        int brakingPower = 2*55;
+        double tractionForce = (0.25*(grip*mass));
+        return Math.abs(-(Math.pow(currentSpeed-requiredSpeed,2))/(brakingPower)) +tractionForce;
     }
 
     /**

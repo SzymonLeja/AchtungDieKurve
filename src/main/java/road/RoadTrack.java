@@ -13,27 +13,27 @@ public class RoadTrack {
     private List<Obstacle> possibleObstacle;
 
     static List<Obstacle> asphaltObstacles = (Arrays.asList(
-            new Obstacle(ObstacleTypes.ROBOTYDROGOWE, 30),
+            new Obstacle(ObstacleTypes.ROADWORKS, 30),
             new Obstacle(ObstacleTypes.BABUSHKA, 10),
-            new Obstacle(ObstacleTypes.PIESZY, 20),
-            new Obstacle(ObstacleTypes.NIC, Double.POSITIVE_INFINITY)
+            new Obstacle(ObstacleTypes.PEDESTRIAN, 20),
+            new Obstacle(ObstacleTypes.NULL, Double.POSITIVE_INFINITY)
     ));
     static List<Obstacle> gravelObstacles = (Arrays.asList(
-            new Obstacle(ObstacleTypes.ROBOTYDROGOWE, 20),
+            new Obstacle(ObstacleTypes.ROADWORKS, 20),
             new Obstacle(ObstacleTypes.BABUSHKA, 5),
-            new Obstacle(ObstacleTypes.PIESZY, 10),
-            new Obstacle(ObstacleTypes.NIC, Double.POSITIVE_INFINITY)
+            new Obstacle(ObstacleTypes.PEDESTRIAN, 10),
+            new Obstacle(ObstacleTypes.NULL, Double.POSITIVE_INFINITY)
     ));
     static List<Obstacle> sandObstacles = (Arrays.asList(
             new Obstacle(ObstacleTypes.BABUSHKA, 10),
-            new Obstacle(ObstacleTypes.PIESZY, 20),
-            new Obstacle(ObstacleTypes.ZWIERZE, 40),
-            new Obstacle(ObstacleTypes.NIC, Double.POSITIVE_INFINITY)
+            new Obstacle(ObstacleTypes.PEDESTRIAN, 20),
+            new Obstacle(ObstacleTypes.ANIMAL, 40),
+            new Obstacle(ObstacleTypes.NULL, Double.POSITIVE_INFINITY)
     ));
     static List<Obstacle> grassObstacles = (Arrays.asList(
             new Obstacle(ObstacleTypes.BABUSHKA, 30),
-            new Obstacle(ObstacleTypes.ZWIERZE, 20),
-            new Obstacle(ObstacleTypes.NIC, Double.POSITIVE_INFINITY)
+            new Obstacle(ObstacleTypes.ANIMAL, 20),
+            new Obstacle(ObstacleTypes.NULL, Double.POSITIVE_INFINITY)
     ));
 
     /**
@@ -57,10 +57,10 @@ public class RoadTrack {
 
     private void setPossibleObstacle(RoadSurfaces track) {
         switch (track) {
-            case ASFALT -> possibleObstacle = asphaltObstacles;
-            case ZWIR -> possibleObstacle = gravelObstacles;
-            case PIASEK -> possibleObstacle = sandObstacles;
-            case TRAWA -> possibleObstacle = grassObstacles;
+            case ASPHALT -> possibleObstacle = asphaltObstacles;
+            case GRAVEL -> possibleObstacle = gravelObstacles;
+            case SAND -> possibleObstacle = sandObstacles;
+            case GRASS -> possibleObstacle = grassObstacles;
             default -> possibleObstacle = new ArrayList<>(Collections.singletonList(new Obstacle(ObstacleTypes.BABUSHKA, 90)));
         }
     }

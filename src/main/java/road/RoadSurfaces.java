@@ -9,19 +9,19 @@ public enum RoadSurfaces {
     /**
      * Asfalt - najlepsze warunki drogowe
      **/
-    ASFALT(0.8, 0.5),
+    ASPHALT(0.8, 0.5),
     /**
      * Zwir - srednie warunki drogowe
      **/
-    ZWIR(0.6, 0.3),
+    GRAVEL(0.6, 0.3),
     /**
      * Piasek - najgorsze warunki drogowe
      **/
-    PIASEK(0.4, 0.2),
+    SAND(0.4, 0.2),
     /**
      * Trawa - slabe warunki drogowe
      **/
-    TRAWA(0.5, 0.3);
+    GRASS(0.5, 0.3);
 
     public final double maxGrip;
     public final double minGrip;

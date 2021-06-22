@@ -9,15 +9,15 @@ public enum RoadDirections {
     /**
      * Droga przebiega prosto, brak zakretu
      */
-    PROSTO,
+    STRAIGHT,
     /**
      * Zakret przebiega w lewa strone
      */
-    LEWO,
+    LEFT,
     /**
      * Zakret przebiega w prawa strone
      */
-    PRAWO;
+    RIGHT;
 
     /**
      * Metoda generujaca losowy kierunek nachylenia drogi
