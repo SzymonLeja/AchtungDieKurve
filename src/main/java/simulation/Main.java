@@ -34,6 +34,6 @@ public class Main {
         }
         CarGenerator carGenerator = new CarGenerator();
         Simulation simulation = new Simulation(carGenerator.generate());
-        simulation.Simulate(distance);
+        simulation.simulate(distance);
     }
 }

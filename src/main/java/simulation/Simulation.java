@@ -24,7 +24,7 @@ public class Simulation {
      * Metoda przeprowadzajaca symulacje
      * @param totalKilometers Dlugosc calej trasy (ilosc wylosowanych odcinkow)
      */
-    public void Simulate(int totalKilometers){
+    public void simulate(int totalKilometers){
         System.out.println(car.toString());
         RoadGenerator roadGenerator = new RoadGenerator();
         boolean crashed = false;

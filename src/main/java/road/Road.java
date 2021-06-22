@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Klasa Road przedstawia wygenerowana droge, jej parametry i przeszkody ktore sie na niej znajduja (lub nie)
  */
-public class Road {
+public class Road implements RoadInterface {
     private double grip;
     private RoadType type;
     private RoadTrack track;
@@ -92,6 +92,7 @@ public class Road {
      * Metoda zwracaja przyczepnosc nawierzchni
      * @return zwraca przyczepnosc nawierzchni (1.0 - 0.1)
      */
+    @Override
     public double getGrip() {
         return grip;
     }
@@ -100,6 +101,7 @@ public class Road {
      * Metoda zwracajaca nachylenie jezdni
      * @return zwraca nachylenie jezdni (0-360)
      */
+    @Override
     public double getCornerDegree() {
         return cornerDegree;
     }
@@ -108,6 +110,7 @@ public class Road {
      * Metoda zwracaja przeszkode na drodze
      * @return zwraca przeszkode zawierajaca sie na drodze
      */
+    @Override
     public Obstacle getObstacle() {
         return obstacle;
     }
