@@ -41,8 +41,8 @@ public class RoadTrack {
      *
      * @param roadType typ drogi do ktorej dobieramy przeszkode
      */
-    public RoadTrack(RoadSurfaces roadType) {
-        this.track = RoadDirections.getRandomDirection();
+    public RoadTrack(RoadSurfaces roadType, long seed) {
+        this.track = RoadDirections.getRandomDirection(seed);
         setPossibleObstacle(roadType);
     }
 

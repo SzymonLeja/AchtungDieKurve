@@ -30,9 +30,9 @@ public class RoadGenerator {
 
     private Road generateInternal(long seed) {
         Random random = new Random(seed);
-        RoadType type = new RoadType();
+        RoadType type = new RoadType(seed);
         double grip = generateGrip(type, random);
-        RoadTrack track = new RoadTrack(type.getType());
+        RoadTrack track = new RoadTrack(type.getType(), seed);
         Double cornerDegree = generateDegree(track, random);
         Obstacle obstacle = generateObstacle(track, random);
         return Road.builder()

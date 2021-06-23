@@ -23,7 +23,7 @@ public enum RoadDirections {
      * Metoda generujaca losowy kierunek nachylenia drogi
      * @return losowy kierunek nachylenia drogi
      */
-    public static RoadDirections getRandomDirection(){
-        return values()[new Random().nextInt(values().length)];
+    public static RoadDirections getRandomDirection(long seed){
+        return values()[new Random(seed).nextInt(values().length)];
     }
 }

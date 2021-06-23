@@ -11,8 +11,8 @@ public class RoadType {
     /**
      * Konstruktor klasy, wybiera losowo powierzchnie drogi
      */
-    public RoadType() {
-        type = RoadSurfaces.getRandomSurface();
+    public RoadType(long seed) {
+        type = RoadSurfaces.getRandomSurface(seed);
         maxGrip = type.maxGrip;
         minGrip = type.minGrip;
     }
