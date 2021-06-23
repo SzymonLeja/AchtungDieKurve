@@ -15,7 +15,8 @@ public class RoadGenerator {
      * @return Samochod wygenerowany na podstawie ziarna
      */
     public Road generate() {
-        return generateInternal(System.currentTimeMillis() % 5);
+        Random random = new Random();
+        return generateInternal(random.nextInt()%656);
     }
 
     /**
@@ -25,7 +26,7 @@ public class RoadGenerator {
      * @return Samochod wygenerowany na podstawie ziarna
      */
     public Road generate(long seed) {
-        return generateInternal(seed);
+        return generateInternal((seed%3));
     }
 
     private Road generateInternal(long seed) {

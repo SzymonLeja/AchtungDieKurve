@@ -10,7 +10,6 @@ class RoadGeneratorTest {
     public void roadGenerator(){
         RoadGenerator generator = new RoadGenerator();
         Road generatedRoad = generator.generate();
-        System.out.println(generatedRoad.toString());
         assertNotNull(generatedRoad, "Car generator");
 
     }
@@ -18,7 +17,6 @@ class RoadGeneratorTest {
     public void roadGenerator2(){
         RoadGenerator generator = new RoadGenerator();
         Road generatedRoad = generator.generate(0);
-        System.out.println(generatedRoad.toString());
         assertNotNull(generatedRoad, "Car generator 2");
     }
 }

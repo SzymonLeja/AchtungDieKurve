@@ -43,6 +43,7 @@ public enum RoadSurfaces {
      * @return losowa nawierzchnia drogi
      */
     public static RoadSurfaces getRandomSurface(long seed) {
-        return values()[new Random(seed).nextInt(values().length)];
+        System.out.println(seed);
+        return values()[new Random(seed).nextInt(Integer.SIZE -1) % (values().length)];
     }
 }
