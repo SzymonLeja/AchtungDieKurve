@@ -26,7 +26,7 @@ public class RoadGenerator {
      * @return Samochod wygenerowany na podstawie ziarna
      */
     public Road generate(long seed) {
-        return generateInternal((seed%3));
+        return generateInternal((seed%9));
     }
 
     private Road generateInternal(long seed) {

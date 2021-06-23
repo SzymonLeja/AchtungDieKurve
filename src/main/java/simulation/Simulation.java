@@ -3,6 +3,7 @@ package simulation;
 import car.Car;
 
 import road.Road;
+import road.RoadCrash;
 import road.RoadGenerator;
 
 import java.text.DecimalFormat;

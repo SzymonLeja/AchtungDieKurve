@@ -1,4 +1,4 @@
-package simulation;
+package road;
 
 import car.Car;
 import obstacle.ObstacleTypes;
