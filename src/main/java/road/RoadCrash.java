@@ -5,6 +5,7 @@ import obstacle.ObstacleTypes;
 import road.Road;
 
 import java.text.DecimalFormat;
+import java.util.logging.Logger;
 
 public class RoadCrash {
     private final Car car;
@@ -26,6 +27,7 @@ public class RoadCrash {
      * @return True/False - Kierowca sie rozbil lub nie
      */
     private boolean corneringCrash(double roadGrip, double cornerDegree, Car car){
+        Logger logger = Logger.getLogger("carCrash");
         double cornerLength = 0.78; //kilometers
         double straightLength = 0.8;//KILOMETERS
         DecimalFormat twoDecimal = new DecimalFormat("#0.00");
@@ -35,7 +37,7 @@ public class RoadCrash {
             double requiredCornerSpeed = Math.sqrt(roadGrip*((corneringLength)/(cornerDegree*Math.PI))*cornerPhysicsForces);
             if(car.getCurrentSpeed() > requiredCornerSpeed){
                 if(car.braking(roadGrip, requiredCornerSpeed)>cornerLength){
-                    System.out.println("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + twoDecimal.format(car.getCurrentSpeed()) +" )");
+                    logger.warning("Wypadles z zakretu! ( Wymagana predkosc: " + requiredCornerSpeed +", twoja predkosc: " + twoDecimal.format(car.getCurrentSpeed()) +" )");
                     return true;
                 }
                 else {
@@ -59,12 +61,14 @@ public class RoadCrash {
      * @return True/False - Kierowca sie rozbil lub nie
      */
     private boolean obstacleCrash(Road road, Car car, double roadGrip){
+        Logger logger = Logger.getLogger("carCrash");
+
         if(road.getObstacle().getObstacleType() != ObstacleTypes.NULL){
             double obstacleRequiredSpeed = road.getObstacle().getRequiredSpeed();
             if(car.getCurrentSpeed() > obstacleRequiredSpeed){
                 int distanceBeforeObstacle = 200; //meters
                 if(car.braking(roadGrip, obstacleRequiredSpeed)>distanceBeforeObstacle){
-                    System.out.println("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
+                    logger.warning("Uderzyles przeszkode! ( " + road.getObstacle().getObstacleType() + " )");
                     return true;
                 }
                 else {

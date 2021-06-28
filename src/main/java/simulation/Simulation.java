@@ -7,6 +7,8 @@ import road.RoadCrash;
 import road.RoadGenerator;
 
 import java.text.DecimalFormat;
+import java.util.logging.Logger;
+
 /**
  * Klasa Simulation odpowiada za przeprowadzenie symulacji (generowanie odcinkow drogi, sprawdzanie czy przejazd jest udany, czy kierowca powinien hamowac lub przyspieszac)
  */
@@ -26,7 +28,8 @@ public class Simulation {
      * @param totalKilometers Dlugosc calej trasy (ilosc wylosowanych odcinkow)
      */
     public void simulate(int totalKilometers){
-        System.out.println(car.toString());
+        Logger logger = Logger.getLogger("simulation");
+        logger.info(car.toString());
         RoadGenerator roadGenerator = new RoadGenerator();
         RoadCrash roadcrash = new RoadCrash(car);
         boolean crashed = false;
@@ -34,11 +37,11 @@ public class Simulation {
         DecimalFormat twoDecimal = new DecimalFormat("#0.00");
         while(kilometersTravelled<=totalKilometers && !crashed){
             Road road = roadGenerator.generate();
-            System.out.println(road.toString());
+            logger.info(road.toString());
             crashed = roadcrash.crash(road);
-            System.out.println("Koniec " + kilometersTravelled + " kilometru, z predkoscia " + twoDecimal.format(car.getCurrentSpeed())+" km/h.\n");
+            logger.info("Koniec " + kilometersTravelled + " kilometru, z predkoscia " + twoDecimal.format(car.getCurrentSpeed()) + " km/h.\n");
             kilometersTravelled+=1;
         }
-        System.out.println(crashed? "Kierowca nie pokonal trasy! Polegl na " + (kilometersTravelled-1) + " kilometrze z predkoscia " + twoDecimal.format(car.getCurrentSpeed()) + " km/h." :"Kierowca pokonal cala trase! (" + (kilometersTravelled-1) + " kilometrow )");
+        logger.warning(crashed? "Kierowca nie pokonal trasy! Polegl na " + (kilometersTravelled-1) + " kilometrze z predkoscia " + twoDecimal.format(car.getCurrentSpeed()) + " km/h." :"Kierowca pokonal cala trase! (" + (kilometersTravelled-1) + " kilometrow )");
     }
 }

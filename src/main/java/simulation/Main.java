@@ -2,7 +2,7 @@ package simulation;
 
 import car.CarGenerator;
 import java.util.Scanner;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 /**
  * <p>Program symulujacy przejazd samochodu o losowych parametrach przez losowe odcinki drogi, o lacznej dlugosci zadanej przez uzytkownika.</p>
@@ -21,7 +21,8 @@ public class Main {
      */
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        Logger logger = Logger.getLogger("logger");
+
+        Logger logger = Logger.getLogger("main");
 
         int distance=0;
         while (distance<=0)
