@@ -7,16 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoadGeneratorTest {
 
     @Test
-    public void roadGenerator(){
+    public void roadGeneratorWorksWithoutSeed(){
         RoadGenerator generator = new RoadGenerator();
         Road generatedRoad = generator.generate();
         assertNotNull(generatedRoad, "Car generator");
 
     }
     @Test
-    public void roadGenerator2(){
+    public void roadGeneratorWorksWithSeed(){
         RoadGenerator generator = new RoadGenerator();
-        Road generatedRoad = generator.generate(0);
-        assertNotNull(generatedRoad, "Car generator 2");
+        Road generatedRoad = generator.generate(2323);
+        assertEquals(0.3490780756391703,generatedRoad.getGrip() );
     }
 }

@@ -15,16 +15,16 @@ public class RoadCrashTests {
     @Test
     public void roadCrashTestCorneringCrash() {
         RoadGenerator roadGenerator = new RoadGenerator();
-        Road road = roadGenerator.generate(350);
+        Road road = roadGenerator.generate(-519);
         CarGenerator carGenerator = new CarGenerator();
-        Car car = carGenerator.generate(1624481297232L);
+        Car car = carGenerator.generate(1624859518170L);
         RoadCrash testCrash = new RoadCrash(car);
         assertEquals(true,testCrash.crash(road));
     }
     @Test
     public void roadCrashTestObstacleCrash() {
         RoadGenerator roadGenerator = new RoadGenerator();
-        Road road = roadGenerator.generate(361);
+        Road road = roadGenerator.generate(1);
         CarGenerator carGenerator = new CarGenerator();
         Car car = carGenerator.generate(1624481297232L);
         RoadCrash testCrash = new RoadCrash(car);
@@ -48,5 +48,15 @@ public class RoadCrashTests {
         Car car = carGenerator.generate(1624481297232L);
         RoadCrash testCrash = new RoadCrash(car);
         assertEquals(false, testCrash.crash(road));
+    }
+    @Test
+    public void roadCrashTestSetRequiredSpeed(){
+        RoadGenerator roadGenerator = new RoadGenerator();
+        Road road = roadGenerator.generate(-26);
+        CarGenerator carGenerator = new CarGenerator();
+        Car car = carGenerator.generate(1624859891233L);
+        RoadCrash testCrash = new RoadCrash(car);
+        assertEquals(false, testCrash.crash(road));
+
     }
 }

@@ -21,7 +21,6 @@ public class CarTests {
         CarGenerator generator = new CarGenerator();
         Car generatedCar = generator.generate(997);
         generatedCar.acceleration(0.8,1.2);
-
         assertEquals(5.869390540567731, generatedCar.getCurrentSpeed());
     }
     @Test

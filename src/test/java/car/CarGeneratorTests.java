@@ -10,7 +10,6 @@ public class CarGeneratorTests {
     public void carGeneratorCheckIfGeneratedIsNotNull(){
         CarGenerator generator = new CarGenerator();
         Car generatedCar = generator.generate();
-        System.out.println(generatedCar.toString());
         assertNotNull(generatedCar, "Car generator");
     }
     @Test
